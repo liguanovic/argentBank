@@ -1,0 +1,45 @@
+[id="login"] {
+  box-sizing: border-box;
+  background-color: white;
+  width: 300px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+  fieldset {
+      flex-direction: column;
+      text-align: left;
+      border: none;
+  }
+
+  fieldset label {
+    font-weight: bold;
+  }
+
+  input {
+    padding: 5px;
+    font-size: 1.2rem;
+  }
+
+  .remember label {
+    margin-left: 0.25rem;
+    font-weight: normal;
+  }
+
+  .sign-in-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-decoration: underline;
+    border: none;
+    background-color: #00bc77;
+    color: #fff;
+    cursor: pointer;
+  }
