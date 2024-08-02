@@ -13,7 +13,7 @@ const Login = () => {
 
 
     return (
-    <main className="main bg-dark">
+        <main className="main bg-dark">
             <section id="login">
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h2>Sign In</h2>
@@ -36,5 +36,5 @@ const Login = () => {
         </main>
     );
 };
-    
-  export default Login;
+
+export default Login;

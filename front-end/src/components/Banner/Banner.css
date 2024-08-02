@@ -1,14 +1,17 @@
 .banner {
-    position: relative;
-    margin: 0;
-    height: 300px;
-    background-image: url('../../assets/bank-tree.webp');
-    background-position: 0 -50px;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  margin: 0;
+  height: 300px;
+  background-position: 0 -50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  img {
+    width: 100%;
+    height: 400px;
   }
-  
-  .banner figcaption {
+
+  figcaption {
     position: relative;
     top: 2rem;
     margin: 0 auto;
@@ -17,38 +20,37 @@
     background: white;
     text-align: left;
   }
-  
-  .subtitle {
+
+  b {
     margin: 0;
     font-weight: bold;
     font-size: 1rem;
   }
-  
-  .text {
+
+  p {
+    margin-top: 19px;
     margin-bottom: 0;
     font-size: 0.9rem;
   }
-  
+
   @media (min-width: 920px) {
-    .banner {
-      height: 400px;
-      background-position: 0% 33%;
-    }
-  
-    .banner figcaption {
+    height: 400px;
+    background-position: 0% 33%;
+
+    figcaption {
       position: absolute;
       top: 50px;
       right: 50px;
       margin: 2rem;
       width: 300px;
     }
-  
-    .subtitle  {
+
+    b {
       font-size: 1.5rem;
     }
-  
-    .text {
+
+    p {
       font-size: 1.2rem;
     }
   }
-  
+}

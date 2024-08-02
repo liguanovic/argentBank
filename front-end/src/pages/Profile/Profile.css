@@ -1,25 +1,25 @@
-.main {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .header {
-    color: #fff;
-    margin-bottom: 2rem;
-    display: flex;
+[id=profile] {
+  display: flex;
+  flex-direction: column;
+
+  header {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
 
   h2 {
+    color: white;
     font-size: 2em;
+    margin: 20px 0;
   }
 
-  button {
+  .user button {
     border-color: #00bc77;
     background-color: #00bc77;
     color: #fff;
     font-weight: bold;
     padding: 10px;
+    margin-bottom: 2rem;
+    width: 90px;
   }
+}

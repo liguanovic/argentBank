@@ -1,17 +1,20 @@
-import React from 'react';
 import './Banner.css';
+import banner from '../../assets/bank-tree.webp';
 
 const Banner = () => {
-    return (
-        <figure className="banner">
-            <figcaption>
-                <p className="subtitle">No fees.</p>
-                <p className="subtitle">No minimum deposit.</p>
-                <p className="subtitle">High interest rates.</p>
-                <p className="text">Open a savings account with Argent Bank today!</p>
-            </figcaption>
-        </figure>
-    )
+
+  return (
+    <figure className="banner">
+      <img src={banner} alt="banner" />
+
+      <figcaption>
+        <b>No fees.</b><br />
+        <b>No minimum deposit.</b><br />
+        <b>High interest rates.</b>
+        <p>Open a savings account with Argent Bank today!</p>
+      </figcaption>
+    </figure>
+  )
 }
 
 export default Banner
