@@ -47,3 +47,60 @@ export const logout = createAsyncThunk(
     }
 );
 
+export const getProfile = createAsyncThunk(
+    'auth/getProfile',
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to get profile');
+            }
+
+            const data = await response.json();
+
+            if (!data || !data.body) {
+                throw new Error('Failed to get profile');
+            }
+
+            return data.body;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
+export const editUsername = createAsyncThunk(
+    'auth/editUsername',
+    async (username, { rejectWithValue }) => {
+        try {
+            const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+                body: JSON.stringify({ username }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to edit username');
+            }
+
+            const data = await response.json();
+
+            return data.body.username;
+
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
+
