@@ -23,3 +23,22 @@
     width: 90px;
   }
 }
+
+@media (max-width: 720px) {
+  .main {
+    .account {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid black;
+      background-color: #fff;
+      width: 80%;
+      margin: 0 auto;
+      flex-direction: column;
+      padding: 1.5rem;
+      box-sizing: border-box;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+  }
+}

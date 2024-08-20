@@ -22,14 +22,19 @@ const Login = () => {
         }
 
         try {
-            dispatch(login({ email, password, rememberMe }));
-            navigate('/profile');
+            const resultAction = await dispatch(login({ email, password, rememberMe }));
+
+            if (login.fulfilled.match(resultAction)) {
+                navigate('/profile');
+            } else {
+                alert('Invalid email or password');
+                navigate('/');
+            }
+
         } catch (error) {
             console.error('Error:', error);
         }
     }
-
-
 
     return (
         <main className="main bg-dark">
@@ -58,7 +63,7 @@ const Login = () => {
                             id="remember-me" />
                         <label htmlFor="remember-me">Remember me</label>
                     </fieldset>
-                    <button className="sign-in-button">Sign In</button>
+                    <button type="submit" className="sign-in-button">Sign In</button>
                 </form>
             </section>
         </main>

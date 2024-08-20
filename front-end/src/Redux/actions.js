@@ -49,6 +49,7 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       localStorage.removeItem('token');
+      sessionStorage.removeItem('token');
       return null;
     } catch (error) {
       console.error('Error:', error);
@@ -84,6 +85,7 @@ export const getProfile = createAsyncThunk(
       if (!data || !data.body) {
         throw new Error('Invalid profile data');
       }
+      console.log('Profile data:', typeof data.body, data.body);
 
       return data.body;
 

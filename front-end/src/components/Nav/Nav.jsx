@@ -1,10 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../Redux/actions';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/argentBankLogo.webp';
 
 import './Nav.css';
 
 const Nav = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const user = useSelector((state) => state.auth.user);
+
+    const handlelogout = (e) => {
+        e.preventDefault();
+        dispatch(logout());
+        navigate('/');
+    };
+
     return (
         <nav id="nav">
             <a href="/">
@@ -14,10 +29,23 @@ const Nav = () => {
 
             <ul>
                 <li>
-                    <Link className="main-nav-item" to="/login">
-                        <i className="fa fa-user-circle"></i>
-                        <b>Sign In</b>
-                    </Link>
+                    {isAuthenticated ? (
+                        <>
+                            <NavLink to='/profile'>
+                                <i className='fa fa-user-circle main-nav-item'></i>
+                                {user.firstName}
+                            </NavLink>
+                            <NavLink to='/' onClick={handlelogout}>
+                                <i className='fa fa-sign-out'></i>
+                                Sign Out
+                            </NavLink>
+                        </>
+                    ) : (
+                        <NavLink className="main-nav-item" to="/login">
+                            <i className="fa fa-user-circle"></i>
+                            <b>Sign In</b>
+                        </NavLink>
+                    )}
                 </li>
             </ul>
         </nav>
