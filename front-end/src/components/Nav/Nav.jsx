@@ -33,7 +33,7 @@ const Nav = () => {
                         <>
                             <NavLink to='/profile'>
                                 <i className='fa fa-user-circle main-nav-item'></i>
-                                {user.firstName}
+                                {user.userName}
                             </NavLink>
                             <NavLink to='/' onClick={handlelogout}>
                                 <i className='fa fa-sign-out'></i>

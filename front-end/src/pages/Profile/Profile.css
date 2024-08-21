@@ -22,6 +22,43 @@
     margin-bottom: 2rem;
     width: 90px;
   }
+
+  .edit {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 20px 0;
+    padding: 0 20px;
+    background-color: white;
+
+    h2 {
+      margin-top: 10px;
+      color: black;
+      font-size: 1.5em;
+    }
+
+    fieldset {
+      border: none;
+    }
+
+    label {
+      color: black;
+    }
+
+    form {
+      display: flex;
+      gap: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .save-button,
+  .cancel-button {
+    width: 100%;
+    border-radius: 3px;
+  }
+
 }
 
 @media (max-width: 720px) {
