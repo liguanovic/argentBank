@@ -9,51 +9,51 @@
     margin: 20px 0;
     font-size: 1.5em;
   }
-}
 
-fieldset {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  border: none;
-  margin-bottom: 1rem;
-}
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: none;
+    margin-bottom: 1rem;
+  }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 
-fieldset label {
-  font-weight: bold;
-}
+  fieldset label {
+    font-weight: bold;
+  }
 
-input {
-  padding: 5px;
-  font-size: 1.2rem;
-}
+  input {
+    padding: 5px;
+    font-size: 1.2rem;
+  }
 
-.remember {
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-}
+  .remember {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
 
-.remember label {
-  margin-left: 0.25rem;
-  font-weight: normal;
-}
+  .remember label {
+    margin-left: 0.25rem;
+    font-weight: normal;
+  }
 
-.sign-in-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  text-decoration: underline;
-  border: none;
-  background-color: #00bc77;
-  color: #fff;
-  cursor: pointer;
+  .sign-in-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-decoration: underline;
+    border: none;
+    background-color: #00bc77;
+    color: #fff;
+    cursor: pointer;
+  }
 }

@@ -10,19 +10,19 @@ const Profile = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
     const [editing, setEditing] = useState(false);
-    const [newuserName, setNewuserName] = useState(user?.userName || '');
+    const [newuserName, setNewuserName] = useState('');
 
     useEffect(() => {
         dispatch(getProfile());
     }, [dispatch]);
 
-    // Mettre à jour newuserName si user change (utile si les données de profil sont chargées après le premier rendu)
     useEffect(() => {
-        setNewuserName(user?.userName || '');
+        setNewuserName('');
     }, [user]);
 
     const handleSave = (e) => {
         e.preventDefault();
+        console.log('Sending userName:', newuserName);
         dispatch(editUsername({ userName: newuserName }));
         setEditing(false);
     };

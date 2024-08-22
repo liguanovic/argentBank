@@ -62,8 +62,9 @@ export const getProfile = createAsyncThunk(
   'auth/getProfile',
   async (_, { rejectWithValue, getState }) => {
     try {
-      // const state = getState();
-      const token = localStorage.getItem('token');
+      const state = getState();
+      const token = state.auth.token;
+      // const token = localStorage.getItem('token');
 
       console.log('Token used for fetching profile:', token);
 
@@ -94,26 +95,35 @@ export const getProfile = createAsyncThunk(
     }
   }
 );
+
 export const editUsername = createAsyncThunk(
   'auth/editUsername',
-  async (username, { rejectWithValue }) => {
+  async (newuserName, { rejectWithValue, getState }) => {
     try {
+
+      const state = getState();
+      const token = state.auth.token;
+
       const response = await fetch('http://localhost:3001/api/v1/user/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ username }),
+        body: JSON.stringify(newuserName),
       });
 
+      console.log('Réponse du serveur :', response);
+
       if (!response.ok) {
+        const error = await response.json();
+        console.log('Erreur :', error);
         throw new Error('Failed to edit username');
       }
 
       const data = await response.json();
 
-      return data.body.username;
+      return data.body.userName;
 
     } catch (error) {
       return rejectWithValue(error.message);
