@@ -18,17 +18,11 @@ export const login = createAsyncThunk(
       }
 
       const data = await response.json();
-      console.log('Response data:', data);
-
       const token = data.body.token;
-      console.log('Token received:', token);
 
       if (!token) {
         throw new Error('Token not found in response');
       }
-
-      localStorage.setItem('token', token);
-      console.log('Token stored in localStorage:', localStorage.getItem('token'));
 
       localStorage.setItem('token', token);
 
@@ -66,8 +60,6 @@ export const getProfile = createAsyncThunk(
       const token = state.auth.token;
       // const token = localStorage.getItem('token');
 
-      console.log('Token used for fetching profile:', token);
-
       const response = await fetch('http://localhost:3001/api/v1/user/profile', {
         method: 'POST',
         headers: {
@@ -81,12 +73,10 @@ export const getProfile = createAsyncThunk(
       }
 
       const data = await response.json();
-      console.log('Profile data received:', data);
 
       if (!data || !data.body) {
         throw new Error('Invalid profile data');
       }
-      console.log('Profile data:', typeof data.body, data.body);
 
       return data.body;
 
@@ -112,8 +102,6 @@ export const editUsername = createAsyncThunk(
         },
         body: JSON.stringify(newuserName),
       });
-
-      console.log('Réponse du serveur :', response);
 
       if (!response.ok) {
         const error = await response.json();

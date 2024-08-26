@@ -5,6 +5,7 @@ import Nav from './components/Nav/Nav';
 import Login from './pages/Login/Login';
 import Profile from './pages/Profile/Profile';
 import Footer from './components/Footer/Footer';
+import ProtectedRoute from './Redux/protectedRoute';
 
 function App() {
   return (
@@ -13,12 +14,23 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/login"
+          element={
+            <ProtectedRoute isProtected={false}>
+              <Login />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/profile"
+          element={
+            <ProtectedRoute isProtected={true}>
+              <Profile />
+            </ProtectedRoute>
+          } />
       </Routes>
 
       <Footer />
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

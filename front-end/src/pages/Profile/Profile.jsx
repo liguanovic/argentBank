@@ -17,12 +17,11 @@ const Profile = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        setNewuserName('');
+        setNewuserName(user.userName || '');
     }, [user]);
 
     const handleSave = (e) => {
         e.preventDefault();
-        console.log('Sending userName:', newuserName);
         dispatch(editUsername({ userName: newuserName }));
         setEditing(false);
     };

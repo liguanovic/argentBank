@@ -71,6 +71,10 @@
       padding: 0.625rem;
       width: 120px;
     }
+
+    .text_input[disabled] {
+      background-color: #908a8a;
+    }
   }
 }
 
