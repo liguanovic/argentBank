@@ -28,7 +28,7 @@ const Login = () => {
                 navigate('/profile');
             } else {
                 alert('Invalid email or password');
-                navigate('/');
+                // navigate('/');
             }
 
         } catch (error) {
